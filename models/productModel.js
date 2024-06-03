@@ -8,12 +8,11 @@ const productSchema = mongoose.Schema(
     },
     quantity: {
       required: true,
-      type: "Number",
+      type: Number,
       default: 0,
     },
     price: {
       type: Number,
-      required: true,
     },
     image: {
       type: String,
