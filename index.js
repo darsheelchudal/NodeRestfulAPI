@@ -1,6 +1,7 @@
 import express from "express";
 import mongoose from "mongoose";
 import { Product } from "./models/productModel.js";
+import dotenv from "dotenv";
 
 const app = express();
 const PORT = 8000;
