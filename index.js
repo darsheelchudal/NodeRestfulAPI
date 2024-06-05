@@ -3,10 +3,11 @@ import mongoose from "mongoose";
 import { Product } from "./models/productModel.js";
 import dotenv from "dotenv";
 
+dotenv.config();
+
 const app = express();
-const PORT = 8000;
-const MONGO_URI =
-  "mongodb+srv://darsheelchudal11:darsheel@cluster0.i4rjtg0.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+const PORT = process.env.PORT || 8000;
+const MONGO_URI = process.env.MONGO_URI;
 
 //middleware
 app.use(express.json());
@@ -87,8 +88,8 @@ mongoose
   .connect(MONGO_URI)
   .then(() => {
     console.log("Connected to mongodb");
-    app.listen(8000, () => {
-      console.log(`Node API app is running on PORT ${8000}`);
+    app.listen(PORT, () => {
+      console.log(`Node API app is running on PORT ${PORT}`);
     });
   })
   .catch((error) => {
