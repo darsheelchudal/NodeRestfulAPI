@@ -4,6 +4,7 @@ import { Product } from "./models/productModel.js";
 import dotenv from "dotenv";
 import productRoute from "./routes/productRoute.js";
 import errorMiddleware from "./middleware/errorMiddleware.js";
+import cors from "cors";
 // import userRoute from "./routes/userRoute.js  ";
 
 dotenv.config();
@@ -11,6 +12,9 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 8000;
 const MONGO_URI = process.env.MONGO_URI;
+
+//cors
+app.use(cors());
 
 //middleware
 app.use(express.json());
