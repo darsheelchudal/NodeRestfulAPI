@@ -19,7 +19,7 @@ app.use("/api/product", productRoute);
 
 //routes
 app.get("/", (req, res) => {
-  res.send("You are at homepage");
+  res.send("Use api/product");
 });
 
 app.get("/blog", (req, res) => {
