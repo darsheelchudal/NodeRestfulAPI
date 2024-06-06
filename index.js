@@ -3,6 +3,8 @@ import mongoose from "mongoose";
 import { Product } from "./models/productModel.js";
 import dotenv from "dotenv";
 import productRoute from "./routes/productRoute.js";
+import errorMiddleware from "./middleware/errorMiddleware.js";
+// import userRoute from "./routes/userRoute.js  ";
 
 dotenv.config();
 
@@ -16,14 +18,16 @@ app.use(express.urlencoded({ extended: false }));
 
 //routes
 app.use("/api/product", productRoute);
+// app.use("/api/users", userRoute);
 
 //routes
 app.get("/", (req, res) => {
-  res.send("Use api/product");
+  throw new Error("fake error");
+  // res.send("Hello nod api");
 });
 
 app.get("/blog", (req, res) => {
-  res.send("Hello blog");
+  res.send("Hello blog, My name is Darsheel");
 });
 
 mongoose
@@ -37,3 +41,5 @@ mongoose
   .catch((error) => {
     console.log("Error : ", error);
   });
+
+app.use(errorMiddleware);
