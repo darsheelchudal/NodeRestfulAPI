@@ -22,7 +22,7 @@ app.use(express.urlencoded({ extended: false }));
 
 //routes
 app.use("/api/product", productRoute);
-// app.use("/api/users", userRoute);
+app.use("/api/users", userRoute);
 
 //routes
 app.get("/", (req, res) => {
