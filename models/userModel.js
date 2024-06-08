@@ -5,7 +5,14 @@ const userSchema = mongoose.Schema({
     required: true,
     type: String,
   },
-  password: {
+  email: {
+    type: String,
     required: true,
   },
+  password: {
+    required: true,
+    type: String,
+  },
 });
+
+export const User = mongoose.Model("User", userSchema);
